@@ -1,23 +1,23 @@
 <?php
 /**
  * Admin class
- * 
+ *
  * This handles majority of the admin processes, Please edit only if you know what you're doing :-|
  * I don't mind anyone improving on this :)
- *  
+ *
  * @author Precious Omonzejele <me@codexplorer.ninja>
  */
 class Admin{
     /**
      * Code/Site build state
-     * 
+     *
      * if the value is not 'production', it tries to show immediate code debugs :)
      * @var string
      */
     private $build_state = 'production';
     /**
      * Api base
-     * 
+     *
      * @var string
      */
     private $api_base = 'https://waveustransit.com/_wv/jpk/';
@@ -27,70 +27,70 @@ class Admin{
     private $curl = null;
     /**
      * curl url
-     * 
+     *
      * @var string
      */
     private $c_url = '';
     /**
      * Response from the curl
-     * 
+     *
      * @var string
      */
     private $raw_response = '';
     /**
      * Response from the curl converted to array
-     * 
+     *
      * @var array
      */
     private $raw_response_array = array();
     /**
      * Response error from the curl
-     * 
+     *
      * @var string
      */
     private $response_error = '';
     /**
      * Store any error gotten here
-     * 
+     *
      * This is what we'll most likely use to display readable errors to the users
      * @var string
      */
     private $error = '';
     /**
      * success state
-     * 
+     *
      * @var bool
      */
     private $success_state = null;
     /**
      * Error reason gotten from the api
-     * 
+     *
      * @var array
      */
     public $err_reason = array('code'=>'','txt'=>'');
     /**
      * Stores the data of the response
-     * 
+     *
      * @var array
      */
     private $data = array();
     /**
      * Stores the data size response
-     * 
+     *
      * gives proper value for responses that are enclosed in a key value :)
-     * 
+     *
      * @var int
      */
     private $data_size = 0;
     /**
      * To store mail_sent key values
-     * 
+     *
      * @var bool
      */
     private $mail_sent = null;
     /**
      * Stores the msg to display when mail sent is false
-     * 
+     *
      * @var string
      */
     private $mail_sent_error = '';
@@ -100,13 +100,13 @@ class Admin{
     private $ids_sep = ',';
     /**
      * Stores the current menu
-     * 
+     *
      * @var string
      */
     protected $current_menu = '';
     /**
      * Stores admin_type
-     * 
+     *
      * so as not to keep involking the curl and make load time faster
      * @var int
      */
@@ -115,9 +115,9 @@ class Admin{
     /**
      * Condstrucdor :)
      */
-    public function __construct(){       
-        /** Order types 
-         * You are adviced to use these constants anywhere you want to signify the order codes 
+    public function __construct(){
+        /** Order types
+         * You are adviced to use these constants anywhere you want to signify the order codes
          */
         define('ORDER_CANCEL_CODE',-1);
         define('ORDER_HOLD_CODE',1);
@@ -137,7 +137,7 @@ class Admin{
     }
     /**
      * get curl url
-     * 
+     *
      * @return string
      */
     public function get_c_url(){
@@ -145,7 +145,7 @@ class Admin{
     }
     /**
      * Call api endpoint
-     * 
+     *
      * @param string $endpoint ignore first /
      * @param string $namespace e.g. general
      * @return bool
@@ -167,9 +167,9 @@ class Admin{
     }
     /**
      * sorts the namespace for curl
-     * 
+     *
      * @param string $namespace
-     * @return string 
+     * @return string
      */
     private function sort_namespace($namespace){
         $result = '';
@@ -186,7 +186,7 @@ class Admin{
     }
     /**
      * Sorts the response gotten from curl
-     * 
+     *
      * @param json|string $response
      * @return bool
      */
@@ -214,7 +214,7 @@ class Admin{
         }
         $this->raw_response_array = $response_a;
         //since all passed , get success state
-         if($response_a['success'] == "true")
+        if($response_a['success'] == "true")
             $this->success_state = true;
         else{
             $this->success_state = false;
@@ -268,7 +268,7 @@ class Admin{
 
     /**
      * get response error property
-     * 
+     *
      * @return mixed
      */
     public function get_response_error(){
@@ -277,7 +277,7 @@ class Admin{
 
     /**
      * Gets the error msg
-     * 
+     *
      * @return string
      */
     public function get_error(){
@@ -285,8 +285,8 @@ class Admin{
     }
     /**
      * Gets err_reason data
-     * 
-     * @return array|bool , false if empty 
+     *
+     * @return array|bool , false if empty
      */
     public function get_reason(){
         $r = $this->err_reason;
@@ -296,7 +296,7 @@ class Admin{
     }
     /**
      * Returns a contact dev custom msg
-     * 
+     *
      * @return string
      */
     public function contact_dev_msg(){
@@ -306,7 +306,7 @@ class Admin{
     }
     /**
      * Returns the build_state
-     * 
+     *
      * @return string
      */
     public function get_build_state(){
@@ -321,22 +321,22 @@ class Admin{
     public function sort_reason($user_error = ''){
         $r_c = $this->get_reason();
         if($r_c == false)
-           return false;
+            return false;
         switch($r_c['code']){
             case -1:
             case 0://internal server error,give an easy message to the user
                 if($this->get_build_state() != 'production')
                     $this->error = $r_c['txt'];
                 else
-                $this->error = 'Sorry an internal error occured, Please try again later '.$this->contact_dev_msg();
-            break;
+                    $this->error = 'Sorry an internal error occured, Please try again later '.$this->contact_dev_msg();
+                break;
             default:
                 $this->error = (empty(trim($user_error))) ? $r_c['txt'] : $user_error;
         }
     }
     /**
      * gets raw response from url
-     * 
+     *
      * @return json|string
      */
     public function get_raw_response(){
@@ -344,7 +344,7 @@ class Admin{
     }
     /**
      * gets raw response array from url
-     * 
+     *
      * @return array
      */
     public function get_raw_response_array(){
@@ -352,7 +352,7 @@ class Admin{
     }
     /**
      * gets success state
-     * 
+     *
      * @return bool
      */
     public function get_success_state(){
@@ -360,7 +360,7 @@ class Admin{
     }
     /**
      * Gets the mail sent state, should only be called when the endpoint returns a mail_sent param
-     * 
+     *
      * @return bool|null , null if the endpoint doesnt have the mail_sent key
      */
     public function get_mail_sent(){
@@ -368,7 +368,7 @@ class Admin{
     }
     /**
      * Gets the mail sent error text
-     * 
+     *
      * @param string $msg(optional), the message you want to show instead of the default
      * @return string
      */
@@ -382,7 +382,7 @@ class Admin{
     }
     /**
      * gets data
-     * 
+     *
      * @return array
      */
     public function get_data(){
@@ -390,7 +390,7 @@ class Admin{
     }
     /**
      * gets data size
-     * 
+     *
      * @return array
      */
     public function get_data_size(){
@@ -398,7 +398,7 @@ class Admin{
     }
     /**
      * The waveus logo url
-     * 
+     *
      * @return string
      */
     public function logo_url(){
@@ -406,11 +406,11 @@ class Admin{
     }
     /**
      * Filter order status to text
-     * 
+     *
      *  3 -- completed
      *  2 -- processing,en-route,enroute,en route
      *  1 -- on hold,held,on-hold
-     *  -1 -- cancelled,canceled 
+     *  -1 -- cancelled,canceled
      *
      * @param int $status
      * @param string $output (optional) the output format you want, num,past,continuous,present
@@ -422,7 +422,7 @@ class Admin{
         $result_array = array();
         /**
          * keeps list of order statuses
-         * id => array(phrases,word_type) 
+         * id => array(phrases,word_type)
          * word_type follows 'present,past,continuous' respectively
          * @var array
          */
@@ -435,7 +435,7 @@ class Admin{
 
         foreach($order_statuses as $int => $values){
             if($status == $int || strpos($values[0],$status) !== false){
-                $result_array = array($int,$values);  
+                $result_array = array($int,$values);
                 break;
             }
         }
@@ -444,13 +444,13 @@ class Admin{
             switch($output){
                 case 'present':
                     $result = $word_type[0];
-                break;
+                    break;
                 case 'past':
                     $result = $word_type[1];
-                break;
+                    break;
                 case 'continuous':
                     $result = $word_type[2];
-                break;
+                    break;
                 default:
                     $result = $result_array[0];
             }
@@ -459,7 +459,7 @@ class Admin{
     }
     /**
      * Get the corresponding user type number or text
-     * 
+     *
      * @param string $value
      * @param bool $return_txt(optional),default is false, if set to true, respective text will be returned
      * @return mixed
@@ -483,18 +483,18 @@ class Admin{
     }
     /**
      * Checks if user is logged in
-     * 
+     *
      * @return bool
      */
     public function is_logged_in(){
         if(isset($_SESSION['user']) && !empty($_SESSION['user']) )
             return true;
-        else 
+        else
             return false;
     }
     /**
      * handles the user validation and redirects to the $redirect page if false
-     * 
+     *
      * @param string $redirect(optional) url to redirect if the user isn't authorised
      */
     public function authorise($redirect = 'login.php'){
@@ -507,7 +507,7 @@ class Admin{
     }
     /**
      * Get the logged in user session
-     * 
+     *
      * @return array
      */
     public function get_session(){
@@ -515,7 +515,7 @@ class Admin{
     }
     /**
      * Sets the user session
-     * 
+     *
      * @param string $value
      */
     private function set_session($value){
@@ -523,7 +523,7 @@ class Admin{
     }
     /**
      * Gets current user info
-     * 
+     *
      * @param string $id
      * @param int $user_type (optional)
      * @return array|bool
@@ -539,7 +539,7 @@ class Admin{
     }
     /**
      * Gets current user info
-     * 
+     *
      * @param string $id
      * @return array|bool
      */
@@ -553,8 +553,8 @@ class Admin{
         return $this->data;
     }
     /**
-     * Displays amount 
-     * 
+     * Displays amount
+     *
      * @param mixed $value
      * @return string
      */
@@ -562,51 +562,51 @@ class Admin{
         $value = (float)$value;
         return '₦'.number_format($value,2,'.',',');
     }
-    /** 
+    /**
      * for displaying the date_time properly
-     * 
-     * @param string $value, the date to be processed 
+     *
+     * @param string $value, the date to be processed
      * @param string $format, the format to convert it to, takes in any correct date format, default is "".
      * @return string
-     */ 
+     */
     public function date_time_display($value,$format = ''){
-	   $value = trim($value);
-	   $value = strtotime($value);//strtr($value, '/', '-');
-	   $format = trim($format);
-		//START WORK
-		$event = $value;//DAY OF EVENT
-		$now = strtotime("now");
-		$today = strtotime("today");
-		$yesterday =  strtotime("yesterday");
-		//FIND OUT IF IT'S YESTERDAY, OR TODAY, TO DISPLAY IT WELL
-		//CALCULATE THE STUFF WELL, SINCE IT'S IN SECONDS
-		$_24 = 24*60*60;//24 hours in seconds
-		$_48 = $_24 * 2;//48 HOURS IN SECONDS
-		$current = $now - $event;
-		$today_event = $today + $_24;
+        $value = trim($value);
+        $value = strtotime($value);//strtr($value, '/', '-');
+        $format = trim($format);
+        //START WORK
+        $event = $value;//DAY OF EVENT
+        $now = strtotime("now");
+        $today = strtotime("today");
+        $yesterday =  strtotime("yesterday");
+        //FIND OUT IF IT'S YESTERDAY, OR TODAY, TO DISPLAY IT WELL
+        //CALCULATE THE STUFF WELL, SINCE IT'S IN SECONDS
+        $_24 = 24*60*60;//24 hours in seconds
+        $_48 = $_24 * 2;//48 HOURS IN SECONDS
+        $current = $now - $event;
+        $today_event = $today + $_24;
         $yesterday_event = $yesterday + $_48;
         $date = '';
-		if(!empty($format)){
-			$date = date($format,$value);
-		}
-		else{
-			if(($event >= $today) && ($event <= $today_event)){//THE EVENT IS STILL WITHIN 24 HOURS
-				$date = "Today @ ".date('h:i A', $value);//.$dt->format("h:m A");
-			}
-			else if(($event >= $yesterday) && ($event <= $yesterday_event)){//THE EVENT IS STILL WITHIN 48 HOURS BUT GREATER THAN 24 HOURS
-				$date = "Yesterday @ ".date('h:i A', $value);//.$dt->format("h:m A");
-			}
-			else{
-				//$date = $dt->format("d M, Y")." @ ".$dt->format("h:m A");
-			$date = date('d M, Y', $value). " @ ".date('h:i A', $value);
-			}
+        if(!empty($format)){
+            $date = date($format,$value);
         }
-		return $date;
-	}
+        else{
+            if(($event >= $today) && ($event <= $today_event)){//THE EVENT IS STILL WITHIN 24 HOURS
+                $date = "Today @ ".date('h:i A', $value);//.$dt->format("h:m A");
+            }
+            else if(($event >= $yesterday) && ($event <= $yesterday_event)){//THE EVENT IS STILL WITHIN 48 HOURS BUT GREATER THAN 24 HOURS
+                $date = "Yesterday @ ".date('h:i A', $value);//.$dt->format("h:m A");
+            }
+            else{
+                //$date = $dt->format("d M, Y")." @ ".$dt->format("h:m A");
+                $date = date('d M, Y', $value). " @ ".date('h:i A', $value);
+            }
+        }
+        return $date;
+    }
 
     /**
      * Handles login aspect of a user
-     * 
+     *
      * @param string email
      * @param string password
      * @return bool
@@ -624,11 +624,8 @@ class Admin{
         }
         //so lets continue our something
         $url = 'login.php?email='.$e.'&password='.$p;
-		$r = $this->get_endpoint($url);
-        if(!$r){//seems it didnt go well, so we can get the response error most likely a system error
-            //so construct a message a normal person will get
-            $this->sort_response($r);
-			//$this->error = 'Sorry, an internal error occurred, try again later';
+        if(!$this->get_endpoint($url)){//seems it didnt go well,
+            // return false because the get_endpoint processes it all
             return false;
         }
         //get status
@@ -654,7 +651,7 @@ class Admin{
     }
     /**
      * Gets the current admin type
-     * 
+     *
      * @return int
      */
     public function get_current_admin_type(){
@@ -673,7 +670,7 @@ class Admin{
     }
     /**
      * Get the corresponding admin type number or text
-     * 
+     *
      * @param string $value
      * @param bool $return_txt(optional),default is false, if set to true, respective text will be returned
      * @return mixed
@@ -693,7 +690,7 @@ class Admin{
     }
     /**
      * To check if an admin meets the list of admin_types that can do something
-     * 
+     *
      * useful when you want only a particular admin type to have access to something
      * @param array $admin_types(optional) the list of admin types you want to allow, default is only 1 in the list
      * @return bool
@@ -718,7 +715,7 @@ class Admin{
     }
     /**
      * Handles access of page contents or contents based on an admin type
-     * 
+     *
      * useful when you want only a particular admin type to have access to something, if admin is not of the authorised type, it displays a message to them
      * @param string $msg_info(optional)
      * @param array $admin_types(optional) the list of admin types you want to allow, default is only 1 in the list
@@ -733,7 +730,7 @@ class Admin{
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">Unathorised access!</strong>
-                     </div>
+                    </div>
                     <div class="card-body">
                         <div class="alert alert-danger" role="alert">
                             <?php
@@ -750,7 +747,7 @@ class Admin{
     }
     /**
      * Gets the users
-     * 
+     *
      * @param int $user_type(optional) default is 1, 1 is user, 2 is dispatcher,3 is admin
      * @param string $status(optional) default is all,can either be active or inactive, to filter the user data
      * @return array|bool
@@ -789,7 +786,7 @@ class Admin{
     }
     /**
      * Just counts the users
-     * 
+     *
      * @param int $user_type(optional) default is 1
      * @param string $status(optional) default is all
      * @return int
@@ -798,10 +795,10 @@ class Admin{
         $this->get_users($user_type,$status);
         return $this->get_data_size();
     }
-    
+
     /**
      * Gets the orders
-     * 
+     *
      * @param int $status(optional) same value as in doc
      * @return array|bool
      */
@@ -821,7 +818,7 @@ class Admin{
     }
     /**
      * Just counts the orders
-     * 
+     *
      * @param int $status(optional) same value as in doc
      * @return int
      */
@@ -831,7 +828,7 @@ class Admin{
     }
     /**
      * Gets total price of order
-     * 
+     *
      * @param string $status, same value as in the doc
      * @return int
      */
@@ -849,7 +846,7 @@ class Admin{
     }
     /**
      * Gets a user's total orders and order amount
-     * 
+     *
      * @param string $user_id
      * @param int $user_type
      * @param string $status, same value as in the doc
@@ -869,11 +866,11 @@ class Admin{
     }
     /**
      * Adds an extra data to array, for customization
-     * 
-     * Note it allows namespace, but it must tally with the data key name, like [key], 
+     *
+     * Note it allows namespace, but it must tally with the data key name, like [key],
      * e.g. $data[0=>['id'=>23,'name'=>'prec'],1=>['id'=>46,'name'=>'pelumi']]
      * in $extra,you can have, ['data where id is [id] persons name is [name]','testing [id]']
-     * this function will return 
+     * this function will return
      * $data[
      *       0=>['id'=>23,'name'=>'prec',0=>'data where id is 23 persons name is prec',1=>'testing 23'],
      *        1=>['id'=>46,'name'=>'pelumi',0=>'data where id is 46 persons name is pelumi',1=>'testing 46']]
@@ -931,7 +928,7 @@ class Admin{
                         break;
                     case 'payment_type':
                         $d[$key] = $val;
-                    break;
+                        break;
                     case 'status':
                         $output = $this->filter_order_status($val,'continuous');
                         if($val != 2 )
@@ -945,10 +942,10 @@ class Admin{
                             $d[$key] = $val;
                         }
                         else{
-                        $u_phone = !empty($user['phone']) ? '<a href="tel:'.$user['phone'].'" title="Call '.$user['fullname'].'"><i class="fas fa-phone"></i></a>' : '';
-                        $u_email = !empty($user['email']) ? '<a href="mailto:'.$user['email'].'" title="Send a mail to '.$user['fullname'].'"><i class="fas fa-envelope"></i></a>' : '';
-                        $d[$key] = '<a href="user.php?id='.$user['id'].'&type='.$key.'" title="view profile"><span class="block-email">'.$user['fullname'].'</span></a>';
-                        $d[$key] .= '<span class="call-to-action">'.$u_phone.' '.$u_email.'</span>';
+                            $u_phone = !empty($user['phone']) ? '<a href="tel:'.$user['phone'].'" title="Call '.$user['fullname'].'"><i class="fas fa-phone"></i></a>' : '';
+                            $u_email = !empty($user['email']) ? '<a href="mailto:'.$user['email'].'" title="Send a mail to '.$user['fullname'].'"><i class="fas fa-envelope"></i></a>' : '';
+                            $d[$key] = '<a href="user.php?id='.$user['id'].'&type='.$key.'" title="view profile"><span class="block-email">'.$user['fullname'].'</span></a>';
+                            $d[$key] .= '<span class="call-to-action">'.$u_phone.' '.$u_email.'</span>';
                         }
                         break;
                 }
@@ -964,8 +961,8 @@ class Admin{
      * filters the users for proper display, table display use actually
      *
      * @param array $data, the array data of the users
-    * @param int $limit(optional), in case you want to set a limit cause loading everything takes more time,if set to 0,returns every row
-    * @return array
+     * @param int $limit(optional), in case you want to set a limit cause loading everything takes more time,if set to 0,returns every row
+     * @return array
      */
     public function filter_users($data,$limit = 0){
         $new_data = array();
@@ -977,31 +974,31 @@ class Admin{
                 switch($key){
                     case 'date_time':
                         $d[$key] = $this->date_time_display($val);
-                    break;
+                        break;
                     case 'email':
                         $d[$key] = '<a href="mailto:'.$val.'" title="send a mail"><span class="block-email">'.$val.'</span></a>';
-                    break;
+                        break;
                     case 'phone':
                         $d[$key] = (!empty(trim($val))) ? '<a href="tel:'.$val.'"><span class="block-email">Click to call</span></a>' : 'N/A';
-                    break;
+                        break;
                     case 'active':
                         $d[$key] = ($val) == 1 ? '<span class="block active">active</span>' : '<span class="block inactive">suspended</span>';
-                    break;
+                        break;
                     case 'admin_type':
                         $d[$key] = '<span class="block-email">'.$this->get_admin_type($val,true).'</span>';
-                    break;
+                        break;
                 }
             }
             $new_data[] = $d;
             if(!($limit < 1) && $count == $limit)
-                 break;
+                break;
             $count++;
         }
         return $new_data;
     }
     /**
      * Gets the site options detail fro api
-     * 
+     *
      * @param array $key_args(optional), single array, add the only keys you want to return here, if not, leave empty
      * @return array|bool
      */
@@ -1030,9 +1027,9 @@ class Admin{
     }
     /**
      * Helps submit the bulk action to the respective api
-     * 
+     *
      * Should be called after the form has been submitted, form must be POST type, if you like, go and do your own :)
-     * 
+     *
      * @param string $type(optional), can be 'order','dispatcher','user', default is order
      * @param string $success_msg(optional), what to show on success, default is ''
      * @return void
@@ -1101,7 +1098,7 @@ class Admin{
 
                 $type_number = $this->get_user_type($t);
                 $url .='user_type='.$type_number.'&ids='.$values;
-            break;
+                break;
             case 'order'://default is order
                 if($action_type == 'delete')
                     $url = 'delete_orders.php?user_id='.$this->get_session().'&ids='.$values;
@@ -1109,7 +1106,7 @@ class Admin{
                     $url = 'change_orders_status.php?user_id='.$this->get_session().'&status=cancel&ids='.$values;
                     $key = 'status_updated';
                 }
-            break;
+                break;
         }
         if(!$this->get_endpoint($url)){
             ?>
@@ -1139,7 +1136,7 @@ class Admin{
     }
     /**
      * Adds a new user
-     * 
+     *
      * @param array $args, an assoc array,key must be same as param being passed to endpoint
      * ['fullname'=>'value','email'=>'value','phone'=>'value']etc
      * @param int $user_type(optional) 2 or 3, default is 2.
@@ -1155,10 +1152,10 @@ class Admin{
         switch($user_type){
             case 3:
                 $user_type = 3;
-            break;
+                break;
             case 1:
                 $user_type = 1;
-            break;
+                break;
             default:
                 $user_type = 2;
         }
@@ -1188,7 +1185,7 @@ class Admin{
     }
     /**
      * Updates user details, works like a charm :)
-     * 
+     *
      * @param array $args, an assoc array,key must be same as param being passed to endpoint
      * ['user_id'=>'value','fullname'=>'value','email'=>'value','phone'=>'value']etc
      * if you also want to update the password, add ['password'=>'value','new_password'=>'value','confirm_new_password'=>'value'] to the args
@@ -1202,18 +1199,18 @@ class Admin{
             $this->response_error = 'empty array :-|';
             return false;
         }
-		// Set namespace and url, cause its different for usertype 1:)
-		$namespace = 'general';
-		$endpoint = 'update_user_details.php';
+        // Set namespace and url, cause its different for usertype 1:)
+        $namespace = 'general';
+        $endpoint = 'update_user_details.php';
         switch($user_type){
             case 3:
                 $user_type = 3;
-            break;
+                break;
             case 1:
                 $user_type = 1;
-				$namespace = 'user';
-				$endpoint = 'update_details.php';
-            break;
+                $namespace = 'user';
+                $endpoint = 'update_details.php';
+                break;
             default:
                 $user_type = 2;
         }
@@ -1241,11 +1238,11 @@ class Admin{
         if(empty($password_array))//no need to update password, end
             return true;
         //continue to part 2 :)
-        return $this->update_user_password($args['user_id'],$password_array,$user_type); 
+        return $this->update_user_password($args['user_id'],$password_array,$user_type);
     }
     /**
      * Updates the user password, works like a charm :)
-     * 
+     *
      * @param string $user_id
      * @param array $p_args, the password arguments,key must be same as param being passed to endpoint
      * ['old_password'=>'value','new_password'=>'value','confirm_new_password'=>'value']
@@ -1269,17 +1266,17 @@ class Admin{
         switch($user_type){
             case 2:
                 $user_type = 2;
-            break;
+                break;
             case 1:
                 $user_type = 1;
-            break;
+                break;
             default:
                 $user_type = 3;
         }//check for password ish so as not to waste curl time
         if($check_old_password == true){//check for old password
             if(empty($p_args['old_password'])){
                 $this->error = 'Current password is empty';
-                return false; 
+                return false;
             }
             //verify if the old password is correct
             $url = 'verify_current_password.php?user_id='.$user_id.'&user_type='.$user_type.'&password='.$p_args['old_password'];
@@ -1293,15 +1290,15 @@ class Admin{
         }
         if(empty($p_args['new_password'])){
             $this->error = 'New password is empty';
-            return false; 
+            return false;
         }
         if($p_args['new_password'] != $p_args['confirm_new_password']){
             $this->error = 'Password combination mismatch, try again.';
-            return false; 
+            return false;
         }
         if(strlen($p_args['new_password']) < 6){
             $this->error = 'Password should be at least 6 characters long, try combining numbers and letters too.';
-            return false;     
+            return false;
         }
         //worked now update
         $url = 'update_user_password.php?user_id='.$user_id.'&user_type='.$user_type.'&password='.$p_args['new_password'];
@@ -1317,7 +1314,7 @@ class Admin{
 
     /**
      * Helps check and send a password reset link via the respective endpoint
-     * 
+     *
      * @param string $email
      * @param int $user_type(optional), default is 3
      * @return bool
@@ -1333,7 +1330,7 @@ class Admin{
         switch($user_type){
             case 3:
                 $user_type = 3;
-            break;
+                break;
             case 2:
                 $user_type = 2;
             case 1:
@@ -1352,68 +1349,68 @@ class Admin{
             return false;
         }
         if(!$this->get_mail_sent())//mail couldnt send
-           return false;
+            return false;
         return true;
     }
 
-	/**
-	 * handles the confirmation of the link and mail
-	 *
-	 * Checks and makes sure the confirmation link and mail are correct
-	 *
-	 * @param string $email
-	 * @param string $link
-	 * @param int $user_type
-	 * @return array|bool
-	 */
-	public function confirm_activation_link($email,$link,$user_type){
-		$email = isset($email) ? trim($email) : '';
-		$link = isset($link) ? trim($link) : '';
-		$user_type = isset($user_type) ? $user_type : 3;
-   
-		if(empty($email) || empty($link))
-			return false;
-		$url = 'confirm_activation_link.php?email='.$email.'&link='.$link.'&user_type='.$user_type;
-		if(!$this->get_endpoint($url,'general'))
-			return false;
-		if(!$this->get_success_state())
-			return false;
-		//check if the user_type returned is same as passed in this page url,cause it has to be the same, its highly impossible
-		// the endpoint returns true and the user_type is different, but oh well, i like to explore 8-)
-		if($this->get_data()['user_type'] != $user_type)
-			return false;
-		return $this->get_data();
-	}
+    /**
+     * handles the confirmation of the link and mail
+     *
+     * Checks and makes sure the confirmation link and mail are correct
+     *
+     * @param string $email
+     * @param string $link
+     * @param int $user_type
+     * @return array|bool
+     */
+    public function confirm_activation_link($email,$link,$user_type){
+        $email = isset($email) ? trim($email) : '';
+        $link = isset($link) ? trim($link) : '';
+        $user_type = isset($user_type) ? $user_type : 3;
 
-	/**
-	 * Updates the user email
-	 *
-	 * @param string $user_id (can also be email)
-	 * @param string $new_email
-	 * @param int $user_type internally, default is most times 3.
-	 * @return array|bool
-	 */	
-	public function update_user_email($user_id,$new_email,$user_type){
-		$user_id = isset($user_id) ? trim($user_id) : '';
-		$new_email = isset($new_email) ? trim($new_email) : '';
-		$user_type = isset($user_type) ? $user_type : 3;
-   
-		if( empty( $user_id ) || empty( $new_email ) )
-			return false;
+        if(empty($email) || empty($link))
+            return false;
+        $url = 'confirm_activation_link.php?email='.$email.'&link='.$link.'&user_type='.$user_type;
+        if(!$this->get_endpoint($url,'general'))
+            return false;
+        if(!$this->get_success_state())
+            return false;
+        //check if the user_type returned is same as passed in this page url,cause it has to be the same, its highly impossible
+        // the endpoint returns true and the user_type is different, but oh well, i like to explore 8-)
+        if($this->get_data()['user_type'] != $user_type)
+            return false;
+        return $this->get_data();
+    }
 
-		$url = 'update_user_email.php?user_id='.$user_id.'&new_email='.$new_email.'&user_type='.$user_type;
-		if( !$this->get_endpoint( $url, 'general' ) )
-			return false;
-		
-		if( !$this->get_success_state() )
-			return false;
+    /**
+     * Updates the user email
+     *
+     * @param string $user_id (can also be email)
+     * @param string $new_email
+     * @param int $user_type internally, default is most times 3.
+     * @return array|bool
+     */
+    public function update_user_email($user_id,$new_email,$user_type){
+        $user_id = isset($user_id) ? trim($user_id) : '';
+        $new_email = isset($new_email) ? trim($new_email) : '';
+        $user_type = isset($user_type) ? $user_type : 3;
 
-		return $this->get_data();
-	}
+        if( empty( $user_id ) || empty( $new_email ) )
+            return false;
+
+        $url = 'update_user_email.php?user_id='.$user_id.'&new_email='.$new_email.'&user_type='.$user_type;
+        if( !$this->get_endpoint( $url, 'general' ) )
+            return false;
+
+        if( !$this->get_success_state() )
+            return false;
+
+        return $this->get_data();
+    }
 
     /**
      * Displays the minimalist simple table
-     * 
+     *
      * @param array $columns, the number of columns with their names, assoc array,e.g['name'=>'Name','email'=>'E-mail']
      * @param array $values, the array data to display, key names must match $columns key name
      * @param int $limit(optional), set the number of rows to display,if set to zero, echos all rows,
@@ -1441,7 +1438,7 @@ class Admin{
                     $prefix = '<strong>#</strong>';
                 $col_key = (isset($columns[$key])) ? array_search($columns[$key],$columns) : false;
                 $insert = (isset($value[$col_key])) ? '<td>'.$prefix.$value[$col_key].'</td>' : '';
-                $tbody .= $insert; 
+                $tbody .= $insert;
             }
             $tbody .='</tr>';
             if(!($limit < 1) && $count == $limit){
@@ -1456,7 +1453,7 @@ class Admin{
 
     /**
      * Displays the table with checkbox feature
-     * 
+     *
      * @param array $columns, the number of columns with their names, must be assoc array,e.g['name'=>'Name','email'=>'E-mail']
      * @param array $values, the array data to display, key names must match $columns key name
      * @return void
@@ -1489,8 +1486,8 @@ class Admin{
             <input type="checkbox" class="inner-checkbox" name="values[]" value = "'.$value['id'].'">
             <span class="au-checkmark"></span>
             </label>');
-            
-           if($this->can_admin_access())//admin has access to bulk edit, so add the checks
+
+            if($this->can_admin_access())//admin has access to bulk edit, so add the checks
                 $value = array_merge($c_b,$value);
 
             foreach($columns as $key=>$val){
@@ -1500,11 +1497,11 @@ class Admin{
                     $prefix = '<strong>#</strong>';
                 if($key == 'checks')
                     $adjust_class = 'adjust-middle';
-                
+
                 $col_key = (isset($columns[$key])) ? array_search($columns[$key],$columns) : false;
                 $insert = (isset($value[$col_key])) ? '<td class="'.$adjust_class.'">'.$prefix.$value[$col_key].'</td>' : '';
-                $tbody .= $insert; 
-           }
+                $tbody .= $insert;
+            }
             $tbody .='</tr><tr class="spacer"></tr>';
         }
         $tbody .= '</tbody>';
@@ -1523,68 +1520,68 @@ class Admin{
 
     /**
      * Displays the menu and header
-     * 
+     *
      * @param string $page_title(optional) , the current page you're on
      * @param string $parent_folder(optional), the parent folder, in case you refer this method from a different folder
      */
-    public function header($page_title = '',$parent_folder = ''){
-        $page_title .=' - Wave Us';
-        ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex, nofollow" />
-    <!-- Title Page-->
-    <title><?php echo $page_title; ?></title>
-    <link rel="shortcut icon" href="<?php echo $parent_folder; ?>images/icon/favicon.ico">
-    <!-- Fontfaces CSS-->
-    <link href="<?php echo $parent_folder; ?>css/font-face.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <!-- Bootstrap CSS-->
-    <link href="<?php echo $parent_folder; ?>assets/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-    <!-- Vendor CSS-->
-    <link href="<?php echo $parent_folder; ?>assets/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/wow/animate.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/slick/slick.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>assets/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-    <!--<link href="assets/vector-map/jqvmap.min.css" rel="stylesheet" media="all">-->
-    <!-- Main CSS-->
-    <link href="<?php echo $parent_folder; ?>css/theme.css" rel="stylesheet" media="all">
-    <link href="<?php echo $parent_folder; ?>css/custom.css" rel="stylesheet" media="all">
-     <!-- Jquery JS-->
-     <script src="<?php echo $parent_folder; ?>assets/jquery-3.2.1.min.js"></script>
-     <style type="text/css">
-        .wv-table-actions button{
-        background-color:#666;
-        margin-bottom:8px;
-        }
-        .wv-table-actions a:hover button{
-	    background-color:#4272d7;
-        }
-        .wv-table-actions .active button{
-    	background-color:#4272d7;
-        }
-    </style>
-</head>
-<?php
+public function header($page_title = '',$parent_folder = ''){
+    $page_title .=' - Wave Us';
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="noindex, nofollow" />
+        <!-- Title Page-->
+        <title><?php echo $page_title; ?></title>
+        <link rel="shortcut icon" href="<?php echo $parent_folder; ?>images/icon/favicon.ico">
+        <!-- Fontfaces CSS-->
+        <link href="<?php echo $parent_folder; ?>css/font-face.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+        <!-- Bootstrap CSS-->
+        <link href="<?php echo $parent_folder; ?>assets/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+        <!-- Vendor CSS-->
+        <link href="<?php echo $parent_folder; ?>assets/animsition/animsition.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/wow/animate.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/slick/slick.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>assets/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+        <!--<link href="assets/vector-map/jqvmap.min.css" rel="stylesheet" media="all">-->
+        <!-- Main CSS-->
+        <link href="<?php echo $parent_folder; ?>css/theme.css" rel="stylesheet" media="all">
+        <link href="<?php echo $parent_folder; ?>css/custom.css" rel="stylesheet" media="all">
+        <!-- Jquery JS-->
+        <script src="<?php echo $parent_folder; ?>assets/jquery-3.2.1.min.js"></script>
+        <style type="text/css">
+            .wv-table-actions button{
+                background-color:#666;
+                margin-bottom:8px;
+            }
+            .wv-table-actions a:hover button{
+                background-color:#4272d7;
+            }
+            .wv-table-actions .active button{
+                background-color:#4272d7;
+            }
+        </style>
+    </head>
+    <?php
     }
     /**
      * Menu
-     * 
+     *
      * @param string $active_page
      */
     public function menu($active_page){
-        $this->current_menu = strtolower(trim($active_page));
-?>
-<body class="animsition">
+    $this->current_menu = strtolower(trim($active_page));
+    ?>
+    <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
@@ -1607,11 +1604,11 @@ class Admin{
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="dashboard">
                             <a class="js-arrow" href="index.php">
-                               <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-						<li class="orders">
+                        <li class="orders">
                             <a href="orders.php">
-                            <i class="fas fa-calendar-alt"></i>Orders
+                                <i class="fas fa-calendar-alt"></i>Orders
                                 <?php $o_p_count = $this->count_orders('process');
                                 echo ($o_p_count > 0) ? '<span title="'.$o_p_count.' orders Processing" class="inbox-num">'.$o_p_count.'</span>' : '' ; ?>
                             </a>
@@ -1630,13 +1627,13 @@ class Admin{
                         </li>
                         <li class="account">
                             <a href="account.php">
-								<i class="zmdi zmdi-account"></i>Account</a>
+                                <i class="zmdi zmdi-account"></i>Account</a>
                         </li>
                         <li>
                             <a href="logout.php">
                                 <i class="fas fa-power-off"></i>logout</a>
                         </li>
-                     </ul>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -1653,14 +1650,14 @@ class Admin{
                     <ul class="list-unstyled navbar__list">
                         <li class="dashboard">
                             <a class="js-arrow" href="index.php">
-                               <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-						<li class="orders">
+                        <li class="orders">
                             <a href="orders.php">
                                 <i class="fas fa-calendar-alt"></i>Orders
                                 <?php $o_p_count = $this->count_orders('process');
                                 echo ($o_p_count > 0) ? '<span title="'.$o_p_count.' orders Processing" class="inbox-num">'.$o_p_count.'</span>' : '' ; ?>
-                                </a>
+                            </a>
                         </li>
                         <li class="admins">
                             <a href="admins.php">
@@ -1676,7 +1673,7 @@ class Admin{
                         </li>
                         <li class="account">
                             <a href="account.php">
-								<i class="zmdi zmdi-account"></i>Account</a>
+                                <i class="zmdi zmdi-account"></i>Account</a>
                         </li>
                         <li>
                             <a href="logout.php">
@@ -1695,7 +1692,7 @@ class Admin{
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <div class="header-button">
-                               <?php $user_data = $this->get_user_data($this->get_session()); ?>
+                                <?php $user_data = $this->get_user_data($this->get_session()); ?>
                                 <div class="account-wrap" style="float:right;">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
@@ -1737,13 +1734,13 @@ class Admin{
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
- <?php
-    }
-    /**
-     * Footer
-     */
-    public function footer(){
-    ?>
+                        <?php
+                        }
+                        /**
+                         * Footer
+                         */
+                        public function footer(){
+                        ?>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -1781,8 +1778,8 @@ class Admin{
     <script type="text/javascript">
         $('.<?php echo $this->current_menu; ?>').addClass('active');
     </script>
-</body>
-</html>
-<?php
-    }
+    </body>
+    </html>
+    <?php
+}
 }
