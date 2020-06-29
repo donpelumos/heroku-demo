@@ -624,9 +624,11 @@ class Admin{
         }
         //so lets continue our something
         $url = 'login.php?email='.$e.'&password='.$p;
-        if(!$this->get_endpoint($url)){//seems it didnt go well, so we can get the response error most likely a system error
+		$r = $this->get_endpoint($url);
+        if(!$r){//seems it didnt go well, so we can get the response error most likely a system error
             //so construct a message a normal person will get
-            $this->error = 'Sorry, an internal error occurred, try again later';
+            $this->sort_response($r);
+			//$this->error = 'Sorry, an internal error occurred, try again later';
             return false;
         }
         //get status
