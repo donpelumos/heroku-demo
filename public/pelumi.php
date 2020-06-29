@@ -1,2 +1,2 @@
 <?php
-echo "This is pelumi page.";
+echo "This is precious page.";
