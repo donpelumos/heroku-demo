@@ -1,0 +1,204 @@
+<manifest alg="2" build="2018.0.0.379" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="www.waveustransit.com" resolutions="1x" timestamp="1549955403065">
+  <folder name="fonts">
+    <file name="proximanovalight.woff" crc="3851158850"/>
+    <file name="proximanovalight.eot" crc="10396488"/>
+    <file name="impactreg.woff" crc="331159636"/>
+    <file name="impactreg.eot" crc="4257985471"/>
+    <file name="titilliumwebregular.woff" crc="198536711"/>
+    <file name="titilliumwebregular.eot" crc="3918026372"/>
+  </folder>
+  <folder name="css">
+    <file name="site_global.css" crc="4108216215"/>
+    <file name="master_a-master.css" crc="4104749495" ref="about-waveus:index:wave-us:contact-us:terms---conditions"/>
+    <file name="nomq_preview_master_a-master.css" crc="291280370" ref="about-waveus:index:wave-us:contact-us:terms---conditions"/>
+    <file name="about-waveus.css" crc="483880159" ref="about-waveus"/>
+    <file name="nomq_about-waveus.css" crc="382366936" ref="about-waveus"/>
+    <file name="index.css" crc="3931946988" ref="index"/>
+    <file name="nomq_index.css" crc="306639679" ref="index"/>
+    <file name="wave-us.css" crc="4238222890" ref="wave-us"/>
+    <file name="nomq_wave-us.css" crc="61137492" ref="wave-us"/>
+    <file name="contact-us.css" crc="4074795809" ref="contact-us"/>
+    <file name="nomq_contact-us.css" crc="3870251141" ref="contact-us"/>
+    <file name="terms---conditions.css" crc="4207483143" ref="terms---conditions"/>
+    <file name="nomq_terms---conditions.css" crc="4240728602" ref="terms---conditions"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="museutils.js" crc="3803043152" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="whatinput.js" crc="86476730" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="museconfig.js" crc="380897831" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="jquery.watch.js" crc="99325471" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="webpro.js" crc="242022427" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="musewpslideshow.js" crc="457073769" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="jquery.museoverlay.js" crc="483674903" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="touchswipe.js" crc="4066113679" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="jquery.musemenu.js" crc="3784699396" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="4148998990" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="form_check.php" crc="147359589" ref="index:contact-us"/>
+    <file name="form_throttle.php" crc="93986428" ref="index:contact-us"/>
+    <file name="form_process.php" crc="3851993751" ref="index:contact-us"/>
+    <file name="form-u58579.php" crc="4026202926" ref="index"/>
+    <file name="form-u57886.php" crc="4106534660" ref="index"/>
+    <file name="form-u48936.php" crc="241370642" ref="index"/>
+    <file name="musewpdisclosure.js" crc="119288625" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="html5shiv.js" crc="4241844378" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="jquery.museresponsive.js" crc="3955820958" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="require.js" crc="4157109226" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="form-u12709.php" crc="141192158" ref="contact-us"/>
+    <file name="form-u59971.php" crc="3840284466" ref="wave-us"/>
+    <file name="form-u60667.php" crc="513037996" ref="wave-us"/>
+    <file name="form-u59275.php" crc="131220547" ref="wave-us"/>
+  </folder>
+  <folder name="images">
+    <file name="favicon.ico" crc="182793364" ref="index:contact-us"/>
+    <file name="waveus-transit-slide-00.jpg" crc="4084721603" seo="true" ref="index">
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+      <caption webpage="index" alt="waveus, wave us, on time"/>
+    </file>
+    <file name="blank.gif" crc="4208392903" ref="index:about-waveus:contact-us:terms---conditions:wave-us"/>
+    <file name="waveus-transit-slide-01.jpg" crc="4258384459" seo="true" ref="index">
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+      <caption webpage="index" alt="waveus transit, waveus biker, wave us, professionals"/>
+    </file>
+    <file name="waveus-transit-slide-02.jpg" crc="4247393421" seo="true" ref="index">
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+      <caption webpage="index" alt="closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery"/>
+    </file>
+    <file name="waveus-transit-slide-03.jpg" crc="163792772" seo="true" ref="index">
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+      <caption webpage="index" alt="made in nigeria, nigeria, promote nigeria made"/>
+    </file>
+    <file name="waveus-transit-slide-04.jpg" crc="4180165451" seo="true" ref="index">
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+      <caption webpage="index" alt="aid small business, all about small business, nigeria made"/>
+    </file>
+    <file name="waveus-transit-slide-05.jpg" crc="236973994" seo="true" ref="index">
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+      <caption webpage="index" alt="connection, bridging the gap, connection between you and customers, clients, bridge"/>
+    </file>
+    <file name="waveus-transit-slide-06.jpg" crc="106258458" seo="true" ref="index">
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+      <caption webpage="index" alt="customer service, top service, customers, services"/>
+    </file>
+    <file name="loading.gif" crc="3815509949" ref="index"/>
+    <file name="logo.svg" crc="285502442" seo="true" ref="index:about-waveus:contact-us:terms---conditions:wave-us">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="wave-us" alt=""/>
+      <caption webpage="wave-us" alt=""/>
+      <caption webpage="wave-us" alt=""/>
+      <caption webpage="wave-us" alt=""/>
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="about-waveus" alt=""/>
+      <caption webpage="about-waveus" alt=""/>
+      <caption webpage="about-waveus" alt=""/>
+      <caption webpage="about-waveus" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+    </file>
+    <file name="logo_poster_.png" crc="466678179" ref="index:contact-us"/>
+    <file name="ontime-icon.svg" crc="87808395" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="ontime icon_poster_.png" crc="481631739" ref="index"/>
+    <file name="reliable-icon.svg" crc="3911943101" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="reliable icon_poster_.png" crc="3967156558" ref="index"/>
+    <file name="secure-icon.svg" crc="254911461" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="secure icon_poster_.png" crc="4107783662" ref="index"/>
+    <file name="van.svg" crc="1103661" ref="index:wave-us"/>
+    <file name="van_poster_u67975.png" crc="4032292217" ref="index:wave-us"/>
+    <file name="motorbike.svg" crc="125888594" ref="index:wave-us"/>
+    <file name="motorbike_poster_u67967.png" crc="4237997878" ref="index:wave-us"/>
+    <file name="biker.svg" crc="232342915" ref="index:wave-us"/>
+    <file name="biker_poster_u67959.png" crc="447685709" ref="index:wave-us"/>
+    <file name="menu closed.svg" crc="229411193" ref="index:contact-us"/>
+    <file name="menu closed_poster_u18903.png" crc="4288052798" ref="index:contact-us"/>
+    <file name="menu open.svg" crc="370395578" ref="index:contact-us"/>
+    <file name="menu open_poster_u18895.png" crc="4074579955" ref="index:contact-us"/>
+    <file name="bike.jpg" crc="125723666" ref="about-waveus">
+      <caption webpage="about-waveus" alt=""/>
+    </file>
+    <file name="bike-u61383-fr.jpg" crc="441614098" ref="about-waveus"/>
+    <file name="bike-u61383-fr2.jpg" crc="175668398" ref="about-waveus"/>
+    <file name="bg-00.jpg" crc="219217086" ref="contact-us:terms---conditions">
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+    </file>
+    <file name="bg-002.jpg" crc="425837954" ref="contact-us:terms---conditions">
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="contact-us" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+      <caption webpage="terms---conditions" alt=""/>
+    </file>
+    <file name="bg-00800x1217.jpg" crc="79074036" ref="contact-us">
+      <caption webpage="contact-us" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="3905548163" seo="true" mt="1546409985049" redirect="true"/>
+  <file name="about-waveus.html" crc="4006651430" seo="true" mt="1546409985049" redirect="true"/>
+  <file name="contact-us.html" crc="189354852" seo="true" mt="1549955330274" redirect="true"/>
+  <file name="terms---conditions.html" crc="4110387534" seo="true" mt="1546409985049" redirect="true"/>
+  <file name="wave-us.html" crc="3788854233" seo="true" mt="1546410818505" redirect="true"/>
+</manifest>

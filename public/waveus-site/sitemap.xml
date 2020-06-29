@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://www.waveustransit.com/index.html</loc>
+    <lastmod>2019-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-00.jpg</image:loc>
+      <image:caption>waveus, wave us, on time</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-01.jpg</image:loc>
+      <image:caption>waveus transit, waveus biker, wave us, professionals</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-02.jpg</image:loc>
+      <image:caption>closed hours, closed hours delivery, night delivery, no restriction, anytime, late delivery</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-03.jpg</image:loc>
+      <image:caption>made in nigeria, nigeria, promote nigeria made</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-04.jpg</image:loc>
+      <image:caption>aid small business, all about small business, nigeria made</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-05.jpg</image:loc>
+      <image:caption>connection, bridging the gap, connection between you and customers, clients, bridge</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/waveus-transit-slide-06.jpg</image:loc>
+      <image:caption>customer service, top service, customers, services</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/logo.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/ontime-icon.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/reliable-icon.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/secure-icon.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://www.waveustransit.com/about-waveus.html</loc>
+    <lastmod>2019-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/logo.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://www.waveustransit.com/contact-us.html</loc>
+    <lastmod>2019-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/logo.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://www.waveustransit.com/terms---conditions.html</loc>
+    <lastmod>2019-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/logo.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://www.waveustransit.com/wave-us.html</loc>
+    <lastmod>2019-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://www.waveustransit.com/images/logo.svg</image:loc>
+    </image:image>
+  </url>
+</urlset>
