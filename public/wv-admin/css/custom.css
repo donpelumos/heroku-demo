@@ -1,0 +1,59 @@
+/*--
+css to assist the main theme.css
+@auhtor: Precious Omonze <me@codeexplorer.ninja>
+*/
+.menu-sidebar{
+    z-index:2 !important;
+}
+.required{
+    color: #ff0000;
+    font-weight:700;
+    margin-left:2px;
+}
+.navbar-mobile .navbar-mobile__list li.active > a {
+    color: #4272d7;
+}
+.account-dropdown{
+    z-index:3 !important;
+}
+.status--on-hold{
+    color: #1b1b1b;
+}
+.status--complete{
+    color: rgb(0, 123, 255);
+}
+.status--process, .block.active {
+    color: #00ad5f;
+}
+
+.status--cancel, .block.inactive {
+    color: #fa4251;
+}
+table .call-to-action{
+    display:block;
+    margin-top:5px;
+}
+.call-to-action a[href^="tel:"],.call-to-action a[href^="mailto:"] {
+    background-color: rgba(0,123,225);
+    padding: 1px 6px;
+    margin: 3px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+}
+.relate{
+    position:relative;
+    top:5px;
+}
+.table-data2.table tbody td {
+    padding: 25px 10px 25px 15px !important;
+}
+td.adjust-middle{
+    vertical-align: middle !important;
+    position: relative;
+    top: -16px;
+}
+.wv-table-actions .inner-title{
+    margin-right:15px;
+}

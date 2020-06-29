@@ -1,0 +1,13 @@
+{
+"require": {
+    "monolog/monolog": "1.2.*"		
+}
+,
+ "autoload": {
+    "classmap": [
+	  "vendor/pekky/curl",
+	  "vendor/pekky/_404",
+	  "vendor/admin"
+      ]
+  }
+}
