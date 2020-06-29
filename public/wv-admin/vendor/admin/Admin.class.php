@@ -20,7 +20,8 @@ class Admin{
      *
      * @var string
      */
-    private $api_base = 'https://waveustransit.com/_wv/jpk/';
+    private $api_base = 'https://waveus-demo.herokuapp.com/api/';
+    //private $api_base = 'https://waveustransit.com/_wv/jpk/';
     /**
      * @var Curl obj
      */
@@ -126,14 +127,14 @@ class Admin{
 
         $this->curl = new Curl();
         if($_SERVER['SERVER_NAME'] != 'waveustransit.com'){//not in production environment
-            $this->api_base = 'http://waveustransit.com/_wv/jpk/';
+            //$this->api_base = 'http://waveustransit.com/_wv/jpk/';
             //turn on bug report
-            $this->build_state = 'test';
+            //$this->build_state = 'test';
         }
         //for dev purposes
         $this->curl->get_auth($this->api_base);
-        if($this->curl->get_error())
-            $this->api_base = 'http://localhost/waveus/api/';
+        //if($this->curl->get_error())
+            //$this->api_base = 'http://localhost/waveus/api/';
     }
     /**
      * get curl url
