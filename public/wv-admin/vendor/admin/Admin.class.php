@@ -22,7 +22,8 @@ class Admin
      *
      * @var string
      */
-    private $api_base = 'https://waveustransit.com/_wv/jpk/';
+    private $api_base = 'https://waveus-demo.herokuapp.com/api/';
+    //private $api_base = 'https://waveustransit.com/_wv/jpk/';
     /**
      * @var Curl obj
      */

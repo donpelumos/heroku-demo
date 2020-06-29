@@ -35,10 +35,10 @@ if($_SERVER['SERVER_NAME'] == SITE_DOMAIN){
 	
 }
 else{ //Offline
-	define('DB_NAME', 'wave_us');
-	define('DB_USER', 'root');
-	define('DB_PASSWORD', '');
-	define('DB_HOST', 'localhost');
+	define('DB_NAME', 'waveus');
+	define('DB_USER', 'waveus');
+	define('DB_PASSWORD', 'qwerty_12345');
+	define('DB_HOST', 'db4free.net');
 	/** Database Charset to use in creating database tables. */
 	define('DB_CHARSET', 'utf8');
 }
