@@ -14,7 +14,7 @@ class Admin{
      * if the value is not 'production', it tries to show immediate code debugs :)
      * @var string
      */
-    private $build_state = 'production';
+    private $build_state = 'test';
     /**
      * Api base
      *
